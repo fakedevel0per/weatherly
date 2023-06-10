@@ -1,9 +1,9 @@
 import React from 'react'
-const Location = () => {
-    
+const Location = (props) => {
+    const {location} = props
   return (
     <div className="mt-3 me-3 ms-3 p-2 w-80 border border-primary rounded">
-      Name :  Region : Mumbai City Country : India 17.09574884516. 14.21465421686 Time-Zone = Kolkata Local Time : 14/06/2023 14:00:00
+      Name : {location.name} Region : {location.region} Country : {location.country} Time-Zone = {location.tz_id} Local Time : {location.localtime} ({location.lat}, {location.lon})
     </div>
   )
 }

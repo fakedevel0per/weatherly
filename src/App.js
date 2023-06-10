@@ -15,7 +15,6 @@ function App() {
   // // }
   // // getIP();
   // console.log(apikey);
-  var defaultData={};
   const [current, setCurrent] = useState({})
   const [inputLocation, setInputLocation] = useState(null)
 
@@ -35,15 +34,6 @@ function App() {
           const res = await fetch(`https://api.weatherapi.com/v1/current.json?key=d4171a20a12f4b98a82171452230906&q=mumbai`).then(res=> res.json()).then(data=> setCurrent(data)).catch(err=>console.log(err));
         console.log(current.location.name)
         }
-        //   try{
-        //     const res = await fetch(`https://api.weatherapi.com/v1/current.json?key=d4171a20a12f4b98a82171452230906&q=Mumbai`);
-        //     const data = res.json();
-        //     setCurrent(data.location);
-        //     console.log(current);
-        //   }catch(err){
-        //     console.log(err)
-        //   }
-        // }
 
         useEffect(() => {
           getCurrentData();
@@ -52,8 +42,8 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Location/>
-      <Content/>
+      <Location location={current.location}/>
+      <Content current={current.current}/>
       <Footer/>
     </div>
   );
