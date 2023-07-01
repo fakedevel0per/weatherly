@@ -3,11 +3,12 @@ import History from './History'
 import Current from './Current'
 import Forecast from './Forecast'
 
-const Content = () => {
+const Content = (props) => {
+
   return (
     <div className="d-flex p-2 justify-content-around">
       <History/>
-      <Current/>
+      <Current current={props.current} />
       <Forecast/>
     </div>
   )

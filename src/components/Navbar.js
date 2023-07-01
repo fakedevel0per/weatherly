@@ -1,8 +1,9 @@
-import React from 'react'
-
-const Navbar = () => {
+import React from 'react';
+import ModalForLocationInNavbar from './ModalForLocationInNavbar';
+const Navbar = (props) => {
+  const {setGps, setIsGPSon} = props;
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-bottom-dark h-100" data-bs-theme="dark">
       <div className="container-fluid">
         <a className="navbar-brand" to="/">Weatherly</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +29,8 @@ const Navbar = () => {
               </ul>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          <form className="d-flex align-items-center" role="search">
+            <ModalForLocationInNavbar setGps={setGps} setIsGPSon={setIsGPSon} />
             <input className="form-control me-2" type="search" placeholder="Search by location" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
